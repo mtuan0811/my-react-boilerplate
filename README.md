@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-![alt text](https://github.com/mtuan0811/my-react-boilerplate/tree/develop/src/preview/login.png)
+![alt text](https://github.com/mtuan0811/my-react-boilerplate/blob/develop/src/preview/login.png?raw=true)
 ## Available Scripts
 
 In the project directory, you can run:
