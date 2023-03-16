@@ -8,7 +8,7 @@ import { AuthLayout } from "./app/layout/authLayout";
 import { NotAuthLayout } from "./app/layout/notAuthLayout";
 import { AboutPage } from "./app/pages/About";
 import { HomePage } from "./app/pages/Home/loadable";
-import LoginPage  from "./app/pages/Login";
+import LoginPage from "./app/pages/Login";
 import { NotFoundPage } from "./app/pages/NotFound";
 import { ProfilePage } from "./app/pages/Profile";
 import { ProtectedRoute } from "./hooks/auth/protectedRoute";
@@ -18,7 +18,14 @@ const mainRoute = () => {
     <Route element={<AuthLayout />}>
       {/* login, logout */}
       <Route element={<NotAuthLayout />}>
-        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/login"
+          element={
+            <ProtectedRoute>
+              <LoginPage />
+            </ProtectedRoute>
+          }
+        />
       </Route>
 
       {/* auth route */}

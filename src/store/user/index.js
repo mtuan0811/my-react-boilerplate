@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { saveDataUser , removeDataUser } from "../../hooks/auth/useLocalStorage";
 
 const userReducer = createSlice({
   name: "user",
@@ -14,6 +15,12 @@ const userReducer = createSlice({
     createInfo: (state, action) => {
       state.user = action.payload.user;
       state.token = action.payload.token;
+      saveDataUser(action.payload)
+    },
+    logout: (state, action) => {
+      state.user = null;
+      state.token = '';
+      removeDataUser()
     },
   },
 });

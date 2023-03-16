@@ -1,12 +1,17 @@
+import React, { memo } from "react";
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { compose } from "redux";
+import { createStructuredSelector } from "reselect";
 import { LoadingIndicator } from "../components/LoadingIndicator";
+import { makeSelectCurrentLoadingState } from "../../selector";
 
-export const LoadingLayout = (props) => {
-  const { isShow, children } = props;
+const LoadingLayout = (props) => {
+  const { isLoading, children } = props;
   return (
     <Wrapper>
       <WrapperItem>{children}</WrapperItem>
-      {isShow && (
+      {isLoading && (
         <LoadingWrapper>
           <LoadingIndicator />
         </LoadingWrapper>
@@ -14,6 +19,16 @@ export const LoadingLayout = (props) => {
     </Wrapper>
   );
 };
+
+const mapStateToProps = createStructuredSelector({
+  isLoading: makeSelectCurrentLoadingState(),
+});
+
+const withConnect = connect(mapStateToProps, null);
+
+export default compose(withConnect, memo)(LoadingLayout);
+
+
 const Wrapper = styled.div`
   position: relative;
 `;

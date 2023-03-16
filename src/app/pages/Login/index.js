@@ -7,21 +7,24 @@ import { CheckBox } from "../../components/Checkbox";
 import { FormLabel } from "../../components/FormLabel";
 import { Input } from "../../components/Input";
 import { A } from "../../components/A";
-import { LoadingLayout } from "../../layout/loadingLayout";
-import { useState } from "react";
+import LoadingLayout from "../../layout/loadingLayout";
 import { AUTH_LOGIN_REQUEST } from "./action";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = (props) => {
-  const [isLoading, setIsLoading] = useState(false);
   const { loginAction } = props;
+  const navigate = useNavigate();
 
   const login = () => {
     // setIsLoading(true)
-    loginAction({ email: "tuandm1@gmail.com", password: "tuandm" });
+    loginAction({
+      data: { email: "tuandm1@gmail.com", password: "tuandm" },
+      navigate,
+    });
   };
 
   return (
-    <LoadingLayout isShow={isLoading}>
+    <LoadingLayout>
       <Wrapper>
         <WrapperImg></WrapperImg>
         <WrapperInput>

@@ -1,24 +1,37 @@
-import { useState } from "react";
+/* eslint-disable react-hooks/rules-of-hooks */
+const USER = "user";
+const TOKEN = "token";
 
-export const useLocalStorage = (keyName, defaultValue) => {
-  const [storedValue, setStoredValue] = useState(() => {
-    try {
-      const value = window.localStorage.getItem(keyName);
-      if (value) {
-        return JSON.parse(value);
-      } else {
-        window.localStorage.setItem(keyName, JSON.stringify(defaultValue));
-        return defaultValue;
-      }
-    } catch (err) {
-      return defaultValue;
+const getLocalStorage = (keyName, defaultValue) => {
+  try {
+    const value = window.localStorage.getItem(keyName);
+    if (value) {
+      return JSON.parse(value);
     }
-  });
-  const setValue = (newValue) => {
-    try {
-      window.localStorage.setItem(keyName, JSON.stringify(newValue));
-    } catch (err) {}
-    setStoredValue(newValue);
-  };
-  return [storedValue, setValue];
+    return defaultValue;
+  } catch (err) {
+    return defaultValue;
+  }
+};
+
+const useLocalStorage = (keyName, data) => {
+  try {
+    window.localStorage.setItem(keyName, JSON.stringify(data));
+  } catch (err) {
+    window.localStorage.setItem(keyName, data);
+  }
+};
+
+export const saveDataUser = (data) => {
+  useLocalStorage(USER, data.user);
+  useLocalStorage(TOKEN, data.user);
+};
+
+export const removeDataUser = () => {
+  window.localStorage.removeItem(USER);
+  window.localStorage.removeItem(TOKEN);
+};
+
+export const getLocalUser = () => {
+  return getLocalStorage(USER)
 };
