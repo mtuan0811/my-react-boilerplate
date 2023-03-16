@@ -2,7 +2,7 @@ import { configureStore  } from '@reduxjs/toolkit'
 // import { createInjectorsEnhancer } from 'redux-injectors';
 import createSagaMiddleware from 'redux-saga';
 import userReducer from './user'
-import userSaga  from './../app/pages/Login/saga'
+import { rootSaga }  from '../sagas'
 
 const reduxSagaMonitorOptions = {};
 const sagaMiddleware = createSagaMiddleware(reduxSagaMonitorOptions);
@@ -17,4 +17,4 @@ export const store = configureStore({
   },
   middleware: defaultMiddleware => [...defaultMiddleware(), ...middlewares],
 })
-sagaMiddleware.run(userSaga)
+sagaMiddleware.run(rootSaga)
