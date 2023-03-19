@@ -10,13 +10,14 @@ import { A } from "../../components/A";
 import LoadingLayout from "../../layout/loadingLayout";
 import { AUTH_LOGIN_REQUEST } from "./action";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const LoginPage = (props) => {
+  const { t } = useTranslation();
   const { loginAction } = props;
   const navigate = useNavigate();
 
   const login = () => {
-    // setIsLoading(true)
     loginAction({
       data: { email: "tuandm1@gmail.com", password: "tuandm" },
       navigate,
@@ -30,21 +31,22 @@ const LoginPage = (props) => {
         <WrapperInput>
           <H2>Login with your account</H2>
           <WrapperInput>
-            <FormLabel>Email</FormLabel>
-            <Input type="text" placeholder="Email" />
+            <FormLabel>{t("global.email")}</FormLabel>
+            <Input type="text" placeholder={t("global.email")} />
           </WrapperInput>
           <WrapperInput>
-            <FormLabel>Password</FormLabel>
-            <Input type="password" placeholder="Password" />
+            <FormLabel>{t("global.password")}</FormLabel>
+            <Input type="password" placeholder={t("global.password")} />
           </WrapperInput>
           <WrapperForgotPassword>
             <WrapperRemember>
-              <CheckBox type="checkbox" /> <label>Remember me</label>
+              <CheckBox type="checkbox" />{" "}
+              <label>{t("login.remember_me")}</label>
             </WrapperRemember>
-            <ALink href="#">Forgot password</ALink>
+            <ALink href="#">{t("login.forgot_password")}</ALink>
           </WrapperForgotPassword>
           <ButtonLogin primary onClick={login}>
-            Login
+            {t("global.login")}
           </ButtonLogin>
         </WrapperInput>
       </Wrapper>

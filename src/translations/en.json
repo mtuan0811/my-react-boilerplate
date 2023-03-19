@@ -1,0 +1,12 @@
+{
+    "global": {
+        "email": "Email",
+        "password": "Password",
+        "login": "Login"
+    },
+    "login": {
+        "title": "",
+        "remember_me": "Remember me",
+        "forgot_password": "Forgot password"
+    }
+}
