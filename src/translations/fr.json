@@ -1,0 +1,14 @@
+{
+    "global": {
+        "email": "E-mail",
+        "password": "Mot de passe",
+        "login": "Connexion",
+        "home": "Maison",
+        "about": "À propos"
+    },
+    "login": {
+        "title": "Connectez-vous avec votre compte",
+        "remember_me": "Se souvenir de moi",
+        "forgot_password": "Mot de passe oublié"
+    }
+}

@@ -2,10 +2,12 @@
     "global": {
         "email": "Email",
         "password": "Password",
-        "login": "Login"
+        "login": "Login",
+        "home": "Home",
+        "about": "About"
     },
     "login": {
-        "title": "",
+        "title": "Login with your account",
         "remember_me": "Remember me",
         "forgot_password": "Forgot password"
     }

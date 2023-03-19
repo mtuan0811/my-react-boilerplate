@@ -29,7 +29,7 @@ const LoginPage = (props) => {
       <Wrapper>
         <WrapperImg></WrapperImg>
         <WrapperInput>
-          <H2>Login with your account</H2>
+          <H2>{t("login.title")}</H2>
           <WrapperInput>
             <FormLabel>{t("global.email")}</FormLabel>
             <Input type="text" placeholder={t("global.email")} />
